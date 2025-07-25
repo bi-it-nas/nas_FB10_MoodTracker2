@@ -24,17 +24,14 @@ public partial class CoursesPage : ContentPage
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is not Course selectedCourse)
-            return;
+        if (e.CurrentSelection.FirstOrDefault() is Course selectedCourse)
+        {
+            // Open as modal (popup style) instead of navigating away
+            await Navigation.PushModalAsync(new CoursesPopupPage(selectedCourse));
+        }
 
-        // prepare detail VM
-        var detailVm = MauiProgram.Services.GetService<CourseDetailViewModel>()!;
-        detailVm.Course = selectedCourse;
-        detailVm.Comment = string.Empty;
-
-        // navigate via Shell routing
-        await Shell.Current.GoToAsync(nameof(CoursesPopupPage));
-
-        ((CollectionView)sender).SelectedItem = null;
+    // Clear selection so item doesn’t stay highlighted
+    ((CollectionView)sender).SelectedItem = null;
     }
+
 }
