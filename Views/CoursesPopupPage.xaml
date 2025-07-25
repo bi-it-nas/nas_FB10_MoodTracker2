@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+    xmlns:local="clr-namespace:nas_FB10_MoodTracker2.Views"
+    x:Class="nas_FB10_MoodTracker2.Views.CoursePopupPage"
+    BackgroundColor="#33000000"
+    Shell.NavBarIsVisible="False">
+
+  <!-- Tapping anywhere outside the frames closes the popup -->
+  <Grid>
+    <Grid.GestureRecognizers>
+      <TapGestureRecognizer Tapped="OnCloseClicked" NumberOfTapsRequired="1"/>
+    </Grid.GestureRecognizers>
+
+    <!-- dimmed backdrop -->
+    <BoxView Color="Black" Opacity="0.2" />
+
+    <!-- centered stack of two windows -->
+    <VerticalStackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        Spacing="12"
+        Padding="16"
+        WidthRequest="300">
+
+      <!-- Top window: details -->
+      <Border
+          BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+          Padding="12"
+          HeightRequest="300"
+          Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
+        <Border.StrokeShape>
+          <shapes:RoundRectangle CornerRadius="16"/>
+        </Border.StrokeShape>
+
+        <Grid RowDefinitions="Auto,*">
+          <!-- close button -->
+          <Button
+            Text="✕"
+            BackgroundColor="Transparent"
+            HorizontalOptions="End"
+            Clicked="OnCloseClicked"
+            Grid.Row="0"/>
+
+          <ScrollView Grid.Row="1" Margin="0,8,0,0">
+            <VerticalStackLayout Spacing="8">
+              <Label Text="{Binding Course.Name}" FontSize="20" FontAttributes="Bold"/>
+              <Label Text="{Binding Course.Description}" />
+              <Label Text="📍 {Binding Course.Location}" />
+              <Label Text="Date: {Binding Course.Date}" />
+              <Label Text="Time: {Binding Course.Time}" />
+            </VerticalStackLayout>
+          </ScrollView>
+        </Grid>
+      </Border>
+
+      <!-- Bottom window: rating & comment -->
+      <Border
+          BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+          Padding="12"
+          HeightRequest="200"
+          Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
+        <Border.StrokeShape>
+          <shapes:RoundRectangle CornerRadius="16"/>
+        </Border.StrokeShape>
+
+        <VerticalStackLayout Spacing="10">
+          <Label Text="Your Rating" FontSize="18" FontAttributes="Bold"/>
+
+          <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+            <Button Text="😤" CommandParameter="1" Clicked="OnRateClicked" FontSize="16"/>
+            <Button Text="😕" CommandParameter="2" Clicked="OnRateClicked" FontSize="16"/>
+            <Button Text="😐" CommandParameter="3" Clicked="OnRateClicked" FontSize="16"/>
+            <Button Text="🙂" CommandParameter="4" Clicked="OnRateClicked" FontSize="16"/>
+            <Button Text="😍" CommandParameter="5" Clicked="OnRateClicked" FontSize="16"/>
+          </HorizontalStackLayout>
+
+          <Editor
+            Placeholder="Optional comment"
+            Text="{Binding Comment}"
+            AutoSize="TextChanges"
+            HeightRequest="60" />
+
+          <Button
+            Text="Submit"
+            IsEnabled="{Binding Course.Rating, Converter={StaticResource NotNullConverter}}"
+            Clicked="OnSubmitClicked"/>
+        </VerticalStackLayout>
+      </Border>
+    </VerticalStackLayout>
+  </Grid>
+</ContentPage>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Card style: use Border not Frame -->
+    <Style TargetType="Border">
+        <Setter Property="Stroke" Value="#E5E5EA" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="StrokeShape">
+          
+        </Setter>
+        <Setter Property="BackgroundColor"
+            Value="{AppThemeBinding Light={StaticResource CardLight}, Dark={StaticResource CardDark}}" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="Shadow">
+            <Setter.Value>
+                <Shadow Brush="#000000" Opacity="0.1" Offset="0,4" Radius="8"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Global Label -->
+    <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="TextColor"
+            Value="{AppThemeBinding Light={StaticResource TextPrimary}, Dark={StaticResource CardLight}}" />
+    </Style>
+
+    <!-- Button style -->
+    <Style TargetType="Button">
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="Padding" Value="14,10" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource TextSecondary}" />
+                            <Setter Property="TextColor" Value="{StaticResource CardLight}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!-- Editor (comments) — no CornerRadius here! -->
+    <Style TargetType="Editor">
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="BackgroundColor"
+            Value="{AppThemeBinding Light={StaticResource CardLight}, Dark={StaticResource CardDark}}" />
+        <Setter Property="TextColor"
+            Value="{AppThemeBinding Light={StaticResource TextPrimary}, Dark={StaticResource CardLight}}" />
+        <Setter Property="Margin" Value="0,4" />
+        <Setter Property="HeightRequest" Value="100" />
+    </Style>
+
+</ResourceDictionary>

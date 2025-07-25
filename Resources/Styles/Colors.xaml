@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!-- iOS‑style blue -->
+    <Color x:Key="Primary">#0A84FF</Color>
+    <Color x:Key="Secondary">#5AC8FA</Color>
+    <Color x:Key="LightBackground">#F2F2F7</Color>
+    <Color x:Key="DarkBackground">#1C1C1E</Color>
+    <Color x:Key="CardLight">#FFFFFF</Color>
+    <Color x:Key="CardDark">#2C2C2E</Color>
+    <Color x:Key="TextPrimary">#1C1C1E</Color>
+    <Color x:Key="TextSecondary">#8E8E93</Color>
+</ResourceDictionary>

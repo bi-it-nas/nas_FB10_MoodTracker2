@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:nas_FB10_MoodTracker2"
+             x:Class="nas_FB10_MoodTracker2.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <local:NotNullConverter x:Key="NotNullConverter"/>
+
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" 
+                        Value="{AppThemeBinding Light={StaticResource CardLight}, Dark={StaticResource CardDark}}"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" 
+                        Value="{AppThemeBinding Light=Black, Dark=White}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

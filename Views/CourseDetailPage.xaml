@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:nas_FB10_MoodTracker2.ViewModels"
+             x:Class="nas_FB10_MoodTracker2.Views.CourseDetailPage"
+             Title="Course Details"
+             x:DataType="viewmodel:CourseDetailViewModel"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="20" Spacing="20">
+
+			<!-- Course Card -->
+			<Frame>
+				<VerticalStackLayout Spacing="12">
+					<Label Text="{Binding Course.Name}"
+						   FontSize="24"
+						   FontAttributes="Bold"
+						   TextColor="{StaticResource Primary}"/>
+					<Label Text="{Binding Course.Description}" FontSize="16"/>
+					<Label Text="📍 {Binding Course.Location}" FontSize="14" TextColor="{StaticResource TextSecondary}"/>
+				</VerticalStackLayout>
+			</Frame>
+
+			<!-- Rating -->
+			<Frame>
+				<VerticalStackLayout Spacing="16">
+					<Label Text="How was it?" FontSize="18" FontAttributes="Bold"/>
+					<HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+						<Button Text="😤" Command="{Binding RateCommand}" CommandParameter="1" WidthRequest="50" HeightRequest="50"/>
+						<Button Text="😕" Command="{Binding RateCommand}" CommandParameter="2" WidthRequest="50" HeightRequest="50"/>
+						<Button Text="😐" Command="{Binding RateCommand}" CommandParameter="3" WidthRequest="50" HeightRequest="50"/>
+						<Button Text="🙂" Command="{Binding RateCommand}" CommandParameter="4" WidthRequest="50" HeightRequest="50"/>
+						<Button Text="😍" Command="{Binding RateCommand}" CommandParameter="5" WidthRequest="50" HeightRequest="50"/>
+					</HorizontalStackLayout>
+
+					<Label Text="{Binding Course.Feedback.Hint}" FontSize="14" TextColor="{StaticResource TextSecondary}"
+						   IsVisible="{Binding Course.Feedback.Hint, Converter={StaticResource NotNullConverter}}"/>
+
+					<!-- Comment Input -->
+					<Editor Text="{Binding Comment}" Placeholder="Add a comment (optional)" />
+
+					<!-- Submit -->
+					<Button Text="Submit Review"
+							Command="{Binding SubmitCommand}"
+							IsEnabled="{Binding CanSubmit}"/>
+
+					<!-- Show existing -->
+					<VerticalStackLayout Spacing="4"
+										IsVisible="{Binding Course.Rating, Converter={StaticResource NotNullConverter}}">
+						<Label Text="Your rating:" FontSize="16"/>
+						<HorizontalStackLayout Spacing="6">
+							<Label Text="{Binding Course.RatingEmoji}" FontSize="24"/>
+							<Label Text="{Binding Course.Comment}" FontSize="16" TextColor="{StaticResource TextSecondary}"/>
+						</HorizontalStackLayout>
+						<Label Text="{Binding Course.RatingTimestamp, StringFormat='Reviewed on {0:MMM d, yyyy h:mm tt}'}"
+							   FontSize="12" TextColor="{StaticResource TextSecondary}"/>
+					</VerticalStackLayout>
+
+				</VerticalStackLayout>
+			</Frame>
+
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

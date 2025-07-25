@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:nas_FB10_MoodTracker2.ViewModels"
+    xmlns:model="clr-namespace:nas_FB10_MoodTracker2.Models"
+    x:Class="nas_FB10_MoodTracker2.Views.CoursesPage"
+    Title="Courses"
+    x:DataType="viewmodels:CoursesViewModel"
+    BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+
+    <RefreshView
+      IsRefreshing="{Binding IsBusy}"
+      Command="{Binding LoadCoursesCommand}">
+
+        <CollectionView
+        ItemsSource="{Binding Courses}"
+        SelectionMode="Single"
+        SelectionChanged="OnSelectionChanged">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Course">
+                    <!-- Plain content view, no border -->
+                    <ContentView Padding="12" Margin="8">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Name}"
+                     FontSize="18"
+                     FontAttributes="Bold"
+                     TextColor="{StaticResource Primary}" />
+                            <Label Text="{Binding Description}"
+                     FontSize="14"
+                     LineBreakMode="TailTruncation"
+                     MaxLines="2"
+                     TextColor="{StaticResource TextSecondary}" />
+                            <HorizontalStackLayout Spacing="6">
+                                <Label Text="📍" />
+                                <Label Text="{Binding Location}" FontSize="12" TextColor="{StaticResource TextSecondary}" />
+                                <Label Text="{Binding Date}" FontSize="12" TextColor="{StaticResource TextSecondary}" />
+                                <Label Text="{Binding Time}" FontSize="12" TextColor="{StaticResource TextSecondary}" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
