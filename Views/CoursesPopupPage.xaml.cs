@@ -3,10 +3,10 @@ using nas_FB10_MoodTracker2.ViewModels;
 
 namespace nas_FB10_MoodTracker2.Views;
 
-public partial class CoursePopupPage : ContentPage
+public partial class CoursesPopupPage : ContentPage
 {
     // parameterless ctor for Shell
-    public CoursePopupPage()
+    public CoursesPopupPage()
     {
         InitializeComponent();
     }

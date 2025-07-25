@@ -3,6 +3,7 @@
     {
       "name": "Painting Workshop",
       "description": "Let your creativity run wild and learn the basics of painting.",
+      "details": "In this 2‑hour workshop you’ll explore color theory, brush techniques, and composition. All materials provided. Suitable for beginners and intermediate artists.",
       "location": "Art Hall",
       "date": "2025-07-01",
       "time": "10:00 - 12:00",
@@ -18,6 +19,7 @@
     {
       "name": "Adventure Hike",
       "description": "Explore nature and learn about flora and fauna on an exciting hike.",
+      "details": "Guided hike through Forest Park—learn about local wildlife, plants, and conservation. Bring water & sturdy shoes!",
       "location": "Forest Park",
       "date": "2025-07-02",
       "time": "09:00 - 12:00",
@@ -33,7 +35,8 @@
     {
       "name": "Swimming Course",
       "description": "Learn to swim or improve your swimming techniques.",
-      "location": "Swimming Pool",
+      "details": "Professional instructors will teach you stroke mechanics, breathing techniques, and water safety. Sessions grouped by skill level.",
+      "location": "Community Pool",
       "date": "2025-07-03",
       "time": "14:00 - 16:00",
       "feedback": {
@@ -48,7 +51,8 @@
     {
       "name": "Pottery Workshop",
       "description": "Create your own pottery pieces with clay and discover the world of ceramics.",
-      "location": "Workshop",
+      "details": "Hands‑on session where you’ll learn wheel‑throwing basics and hand‑building techniques. Finished pieces ready after firing in one week.",
+      "location": "Ceramics Studio",
       "date": "2025-07-04",
       "time": "10:00 - 12:00",
       "feedback": {
@@ -63,6 +67,7 @@
     {
       "name": "Science Experiments",
       "description": "Explore exciting scientific experiments and discover the world of chemistry and physics.",
+      "details": "Conduct volcano eruptions, create slime, and explore magnetism in a safe lab environment. Perfect for curious minds aged 10 and up.",
       "location": "Learning Lab",
       "date": "2025-07-05",
       "time": "09:30 - 11:30",
@@ -78,7 +83,8 @@
     {
       "name": "Kids Cooking Class",
       "description": "Learn how to cook simple and delicious dishes and understand important ingredients in the kitchen.",
-      "location": "Kitchen",
+      "details": "Kids will prepare pizzas, fruit salads, and simple desserts while learning about nutrition and kitchen safety.",
+      "location": "Community Kitchen",
       "date": "2025-07-06",
       "time": "13:00 - 15:00",
       "feedback": {
@@ -93,7 +99,8 @@
     {
       "name": "Reading Club",
       "description": "Read exciting stories together and learn how to choose good books.",
-      "location": "Library",
+      "details": "Weekly discussion of a selected children’s book, followed by creative drawing and role‑playing exercises inspired by the story.",
+      "location": "City Library",
       "date": "2025-07-07",
       "time": "10:00 - 12:00",
       "feedback": {
@@ -108,6 +115,7 @@
     {
       "name": "Knight Games",
       "description": "Dive into the world of knights and princesses and experience exciting adventures.",
+      "details": "Medieval‑themed obstacle courses, sword‑play demos, and storytelling under the castle arches. Costumes encouraged!",
       "location": "Castle Garden",
       "date": "2025-07-08",
       "time": "11:00 - 13:00",
@@ -123,6 +131,7 @@
     {
       "name": "Music Class",
       "description": "Learn an instrument or improve your musical knowledge in a group.",
+      "details": "Choose between guitar, piano, and percussion. Break into small ensembles to practice ensemble playing.",
       "location": "Music Room",
       "date": "2025-07-09",
       "time": "15:00 - 17:00",
@@ -138,6 +147,7 @@
     {
       "name": "Kids Yoga",
       "description": "Learn yoga techniques for relaxation and improving posture.",
+      "details": "Fun yoga sequences, breathing exercises, and mindfulness games designed for children aged 6–12.",
       "location": "Yoga Studio",
       "date": "2025-07-10",
       "time": "08:30 - 10:00",
@@ -145,6 +155,38 @@
         "enabled": true,
         "type": "rating",
         "hint": "Rate the yoga class from 1 to 5 stars."
+      },
+      "rating": null,
+      "rating_timestamp": null,
+      "comment": null
+    },
+    {
+      "name": "Photography Basics",
+      "description": "Learn the fundamentals of photography: composition, lighting, and camera settings.",
+      "details": "Hands‑on session using DSLR cameras. We'll cover aperture, shutter speed, ISO, and basic editing techniques.",
+      "location": "Studio 21",
+      "date": "2025-07-11",
+      "time": "10:00 - 13:00",
+      "feedback": {
+        "enabled": true,
+        "type": "rating",
+        "hint": "Rate the photography class from 1 to 5 stars."
+      },
+      "rating": null,
+      "rating_timestamp": null,
+      "comment": null
+    },
+    {
+      "name": "Beginner Robotics",
+      "description": "Build and program simple robots using Lego Mindstorms.",
+      "details": "Team‑based workshop where participants assemble robots and learn basic programming logic to complete challenges.",
+      "location": "Tech Lab",
+      "date": "2025-07-12",
+      "time": "14:00 - 17:00",
+      "feedback": {
+        "enabled": true,
+        "type": "rating",
+        "hint": "Rate the robotics workshop from 1 to 5 stars."
       },
       "rating": null,
       "rating_timestamp": null,

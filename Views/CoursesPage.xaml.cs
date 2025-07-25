@@ -33,7 +33,7 @@ public partial class CoursesPage : ContentPage
         detailVm.Comment = string.Empty;
 
         // navigate via Shell routing
-        await Shell.Current.GoToAsync(nameof(CoursePopupPage));
+        await Shell.Current.GoToAsync(nameof(CoursesPopupPage));
 
         ((CollectionView)sender).SelectedItem = null;
     }

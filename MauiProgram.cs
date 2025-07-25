@@ -25,11 +25,14 @@ public static class MauiProgram
 
         // Register viewmodels
         builder.Services.AddTransient<CoursesViewModel>();
-        builder.Services.AddTransient<CourseDetailViewModel>();
+        // Make CourseDetailViewModel a singleton so its Course property is preserved
+        builder.Services.AddSingleton<CourseDetailViewModel>();
 
         // Register views
         builder.Services.AddTransient<CoursesPage>();
         builder.Services.AddTransient<CourseDetailPage>();
+        // Register your popup page for DI resolution
+        builder.Services.AddTransient<CoursesPopupPage>();
 
         var app = builder.Build();
         Services = app.Services;

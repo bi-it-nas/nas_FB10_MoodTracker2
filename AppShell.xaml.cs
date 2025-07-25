@@ -10,6 +10,6 @@ public partial class AppShell : Shell
         InitializeComponent();
 
         // Register the popup page for Shell routing
-        Routing.RegisterRoute(nameof(CoursePopupPage), typeof(CoursePopupPage));
+        Routing.RegisterRoute(nameof(CoursesPopupPage), typeof(CoursesPopupPage));
     }
 }

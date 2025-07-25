@@ -9,9 +9,9 @@ public class Course : INotifyPropertyChanged
 {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public string Location { get; set; } = string.Empty;
 
-    // ← Added these two
+    // ← Added Location, Date, Time
+    public string Location { get; set; } = string.Empty;
     public string Date { get; set; } = string.Empty;
     public string Time { get; set; } = string.Empty;
 
@@ -38,6 +38,14 @@ public class Course : INotifyPropertyChanged
         set => SetProperty(ref _comment, value, nameof(Comment));
     }
 
+    // ← **New**: Details field for your extended JSON info
+    private string _details = string.Empty;
+    public string Details
+    {
+        get => _details;
+        set => SetProperty(ref _details, value, nameof(Details));
+    }
+
     public string RatingEmoji => Rating switch
     {
         1 => "😤",
@@ -45,7 +53,7 @@ public class Course : INotifyPropertyChanged
         3 => "😐",
         4 => "🙂",
         5 => "😍",
-        _ => "❓"
+        _ => string.Empty
     };
 
     public event PropertyChangedEventHandler? PropertyChanged;
