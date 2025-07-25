@@ -63,29 +63,36 @@
                         </HorizontalStackLayout>
 
                         <!-- Reviewed / Commented tags -->
-                        <HorizontalStackLayout Spacing="4">
+                        <HorizontalStackLayout Spacing="12" Padding="0,4,0,0">
+
+                            <!-- Rated tag -->
                             <Frame
       IsVisible="{Binding Rating, Converter={StaticResource NotNullConverter}}"
-      Padding="4,2"
-      CornerRadius="4"
+      Padding="6,3"
+      Margin="0"
+      CornerRadius="8"
       BackgroundColor="#AF52DE"
       HasShadow="False">
                                 <Label
-      Text="{Binding RatingEmoji, StringFormat='Reviewed with {0}'}"
-      TextColor="White"
-      FontSize="12" />
-                                <Frame
+        Text="{Binding RatingEmoji, StringFormat='Rated: {0}'}"
+        TextColor="White"
+        FontSize="12" />
+                            </Frame>
+
+                            <!-- Commented tag -->
+                            <Frame
       IsVisible="{Binding Comment, Converter={StaticResource NotNullConverter}}"
-      Padding="4,2"
-      CornerRadius="4"
+      Padding="6,3"
+      Margin="0"
+      CornerRadius="8"
       BackgroundColor="#FF9500"
       HasShadow="False">
-                                    <Label
-      Text="Commented"
-      TextColor="White"
-      FontSize="12" />
-                                </Frame>
+                                <Label
+        Text="Commented"
+        TextColor="White"
+        FontSize="12" />
                             </Frame>
+
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </ContentView>
