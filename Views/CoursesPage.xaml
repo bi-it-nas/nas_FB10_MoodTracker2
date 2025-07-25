@@ -9,40 +9,87 @@
     x:DataType="viewmodels:CoursesViewModel"
     BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
 
-    <RefreshView
-      IsRefreshing="{Binding IsBusy}"
-      Command="{Binding LoadCoursesCommand}">
-
-        <CollectionView
+    <CollectionView
         ItemsSource="{Binding Courses}"
         SelectionMode="Single"
         SelectionChanged="OnSelectionChanged">
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Course">
-                    <!-- Plain content view, no border -->
-                    <ContentView Padding="12" Margin="8">
-                        <VerticalStackLayout Spacing="4">
-                            <Label Text="{Binding Name}"
-                     FontSize="18"
-                     FontAttributes="Bold"
-                     TextColor="{StaticResource Primary}" />
-                            <Label Text="{Binding Description}"
-                     FontSize="14"
-                     LineBreakMode="TailTruncation"
-                     MaxLines="2"
-                     TextColor="{StaticResource TextSecondary}" />
-                            <HorizontalStackLayout Spacing="6">
-                                <Label Text="📍" />
-                                <Label Text="{Binding Location}" FontSize="12" TextColor="{StaticResource TextSecondary}" />
-                                <Label Text="{Binding Date}" FontSize="12" TextColor="{StaticResource TextSecondary}" />
-                                <Label Text="{Binding Time}" FontSize="12" TextColor="{StaticResource TextSecondary}" />
-                            </HorizontalStackLayout>
-                        </VerticalStackLayout>
-                    </ContentView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Course">
+                <ContentView Padding="12" Margin="8">
+                    <!-- iOS‑style selection highlight -->
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#E5E5EA" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
 
-        </CollectionView>
-    </RefreshView>
+                    <VerticalStackLayout Spacing="6">
+                        <Label
+                            Text="{Binding Name}"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource Primary}" />
+                        <Label
+                            Text="{Binding Description}"
+                            FontSize="14"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="2"
+                            TextColor="{StaticResource TextSecondary}" />
+
+                        <HorizontalStackLayout Spacing="6">
+                            <Label Text="📍" />
+                            <Label
+                                Text="{Binding Location}"
+                                FontSize="12"
+                                TextColor="{StaticResource TextSecondary}" />
+                            <Label
+                                Text="{Binding Date}"
+                                FontSize="12"
+                                TextColor="{StaticResource TextSecondary}" />
+                            <Label
+                                Text="{Binding Time}"
+                                FontSize="12"
+                                TextColor="{StaticResource TextSecondary}" />
+                        </HorizontalStackLayout>
+
+                        <!-- Reviewed / Commented tags -->
+                        <HorizontalStackLayout Spacing="4">
+                            <Frame
+      IsVisible="{Binding Rating, Converter={StaticResource NotNullConverter}}"
+      Padding="4,2"
+      CornerRadius="4"
+      BackgroundColor="#AF52DE"
+      HasShadow="False">
+                                <Label
+      Text="{Binding RatingEmoji, StringFormat='Reviewed with {0}'}"
+      TextColor="White"
+      FontSize="12" />
+                                <Frame
+      IsVisible="{Binding Comment, Converter={StaticResource NotNullConverter}}"
+      Padding="4,2"
+      CornerRadius="4"
+      BackgroundColor="#FF9500"
+      HasShadow="False">
+                                    <Label
+      Text="Commented"
+      TextColor="White"
+      FontSize="12" />
+                                </Frame>
+                            </Frame>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </ContentView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
