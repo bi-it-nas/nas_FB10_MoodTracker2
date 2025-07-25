@@ -15,51 +15,48 @@
         <BoxView Color="Black" Opacity="0.2" />
 
         <VerticalStackLayout
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            Spacing="12"
-            Padding="8"
-            WidthRequest="340">
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        Spacing="12"
+        Padding="8"
+        WidthRequest="340">
 
             <!-- DETAILS WINDOW -->
             <Border
-                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
-                Padding="12"
-                HeightRequest="300"
-                Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
+          BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+          Padding="12"
+          HeightRequest="300"
+          Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
                 <Border.StrokeShape>
                     <shapes:RoundRectangle CornerRadius="16"/>
                 </Border.StrokeShape>
-
                 <Grid RowDefinitions="Auto,*">
                     <Button
-                        Text="✕"
-                        BackgroundColor="Transparent"
-                        HorizontalOptions="End"
-                        Clicked="OnCloseClicked"
-                        Grid.Row="0"/>
-
+            Text="✕"
+            BackgroundColor="Transparent"
+            HorizontalOptions="End"
+            Clicked="OnCloseClicked"
+            Grid.Row="0"/>
                     <ScrollView Grid.Row="1" Margin="0,8,0,0">
                         <VerticalStackLayout Spacing="8">
                             <Label Text="{Binding Course.Name}" FontSize="20" FontAttributes="Bold"/>
                             <Label Text="{Binding Course.Description}" />
-
-                            <Label 
-                                Text="{Binding Course.Details}" 
-                                FontSize="14" 
-                                LineBreakMode="WordWrap" />
-
-                            <Label 
-                                Text="{Binding Course.Location, StringFormat='📍 {0}'}" 
-                                FontSize="14" />
-
-                            <Label 
-                                Text="{Binding Course.Date, StringFormat='Date: {0}'}" 
-                                FontSize="14" />
-
-                            <Label 
-                                Text="{Binding Course.Time, StringFormat='Time: {0}'}" 
-                                FontSize="14" />
+                            <Label Text="{Binding Course.Details}" FontSize="14" LineBreakMode="WordWrap"/>
+                            <Label Text="{Binding Course.Location, StringFormat='📍 {0}'}" FontSize="14"/>
+                            <Label Text="{Binding Course.Date, StringFormat='Date: {0}'}" FontSize="14"/>
+                            <Label Text="{Binding Course.Time, StringFormat='Time: {0}'}" FontSize="14"/>
+                            <Frame
+            IsVisible="{Binding Course.Comment, Converter={StaticResource NotNullConverter}}"
+            Padding="10"
+            Margin="0,8,0,0"
+            CornerRadius="8"
+            BackgroundColor="#F0F0F0"
+            HasShadow="False">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="Your Comment:" FontAttributes="Bold" FontSize="14" TextColor="#333"/>
+                                    <Label Text="{Binding Course.Comment}" FontSize="14" TextColor="#555" LineBreakMode="WordWrap"/>
+                                </VerticalStackLayout>
+                            </Frame>
                         </VerticalStackLayout>
                     </ScrollView>
                 </Grid>
@@ -67,40 +64,99 @@
 
             <!-- RATING & COMMENT WINDOW -->
             <Border
-                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
-                Padding="12"
-                HeightRequest="240"
-                Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
+          BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+          Padding="12"
+          HeightRequest="260"
+          Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
                 <Border.StrokeShape>
                     <shapes:RoundRectangle CornerRadius="16"/>
                 </Border.StrokeShape>
 
                 <VerticalStackLayout Spacing="10">
+
                     <Label Text="Your Rating" FontSize="18" FontAttributes="Bold"/>
 
+                    <!-- Emojis reversed: happiest on left -->
                     <HorizontalStackLayout 
-                        HorizontalOptions="Center" 
-                        Spacing="8" 
-                        WidthRequest="280">
-                        <Button Text="😤" CommandParameter="1" Clicked="OnRateClicked" />
-                        <Button Text="😕" CommandParameter="2" Clicked="OnRateClicked" />
-                        <Button Text="😐" CommandParameter="3" Clicked="OnRateClicked" />
-                        <Button Text="🙂" CommandParameter="4" Clicked="OnRateClicked" />
-                        <Button Text="😍" CommandParameter="5" Clicked="OnRateClicked" />
+              HorizontalOptions="Center" 
+              Spacing="8" 
+              WidthRequest="280">
+
+                        <Button Text="😍" CommandParameter="5" Clicked="OnRateClicked">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding Course.Rating}" Value="5">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                                    <Setter Property="TextColor" Value="White"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button Text="🙂" CommandParameter="4" Clicked="OnRateClicked">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding Course.Rating}" Value="4">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                                    <Setter Property="TextColor" Value="White"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button Text="😐" CommandParameter="3" Clicked="OnRateClicked">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding Course.Rating}" Value="3">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                                    <Setter Property="TextColor" Value="White"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button Text="😕" CommandParameter="2" Clicked="OnRateClicked">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding Course.Rating}" Value="2">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                                    <Setter Property="TextColor" Value="White"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                        <Button Text="😤" CommandParameter="1" Clicked="OnRateClicked">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding Course.Rating}" Value="1">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+                                    <Setter Property="TextColor" Value="White"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
                     </HorizontalStackLayout>
 
                     <Editor
-                        Text="{Binding Comment}"
-                        Placeholder="Optional comment"
-                        AutoSize="TextChanges"
-                        HeightRequest="60" />
+            Text="{Binding Comment}"
+            Placeholder="Optional comment"
+            AutoSize="TextChanges"
+            HeightRequest="60" />
 
                     <Button
-                        Text="Submit"
-                        IsEnabled="{Binding Course.Rating, Converter={StaticResource NotNullConverter}}"
-                        Clicked="OnSubmitClicked"/>
+            Text="Submit"
+            IsEnabled="{Binding Course.Rating, Converter={StaticResource NotNullConverter}}"
+            Clicked="OnSubmitClicked"/>
+
+                    <!-- Submitted comment display -->
+                    <Frame
+            IsVisible="{Binding Course.Comment, Converter={StaticResource NotNullConverter}}"
+            Padding="10"
+            Margin="0,8,0,0"
+            CornerRadius="8"
+            BackgroundColor="#F0F0F0"
+            HasShadow="False">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Your Comment:" FontAttributes="Bold" FontSize="14" TextColor="#333"/>
+                            <Label Text="{Binding Course.Comment}" FontSize="14" TextColor="#555" LineBreakMode="WordWrap"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
                 </VerticalStackLayout>
             </Border>
+
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
