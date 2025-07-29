@@ -10,6 +10,7 @@ namespace nas_FB10_MoodTracker2.ViewModels;
 public partial class CoursesViewModel : ObservableObject
 {
     private readonly CourseService _courseService;
+    private readonly CacheService _cacheService;
 
     [ObservableProperty]
     private bool _isBusy;
@@ -18,9 +19,10 @@ public partial class CoursesViewModel : ObservableObject
 
     public IAsyncRelayCommand LoadCoursesCommand { get; }
 
-    public CoursesViewModel(CourseService courseService)
+    public CoursesViewModel(CourseService courseService, CacheService cacheService)
     {
         _courseService = courseService;
+        _cacheService = cacheService;
         LoadCoursesCommand = new AsyncRelayCommand(LoadCoursesAsync);
         _ = LoadCoursesAsync();
     }
@@ -33,9 +35,19 @@ public partial class CoursesViewModel : ObservableObject
         try
         {
             var list = await _courseService.GetCoursesAsync();
+            var cache = await _cacheService.LoadAsync();
+
             Courses.Clear();
             foreach (var c in list)
+            {
+                // Apply cached rating/comment
+                if (cache.TryGetValue(c.Id, out var cached))
+                {
+                    c.Rating = cached.Rating;
+                    c.Comment = cached.Comment;
+                }
                 Courses.Add(c);
+            }
         }
         finally
         {

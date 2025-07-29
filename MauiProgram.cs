@@ -22,6 +22,7 @@ public static class MauiProgram
 
         // Register services
         builder.Services.AddSingleton<CourseService>();
+        builder.Services.AddSingleton<CacheService>();
 
         // Register viewmodels
         builder.Services.AddTransient<CoursesViewModel>();

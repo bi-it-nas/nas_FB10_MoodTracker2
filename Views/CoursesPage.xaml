@@ -8,6 +8,17 @@
     Title="Courses"
     x:DataType="viewmodels:CoursesViewModel"
     BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="⚙️"
+               Priority="0"
+               Order="Primary"
+               Clicked="OnSettingsClicked"/>
+        <ToolbarItem Text="Exit"
+               Priority="1"
+               Order="Primary"
+               Clicked="OnCloseAppClicked"/>
+    </ContentPage.ToolbarItems>
+
 
     <CollectionView
         ItemsSource="{Binding Courses}"

@@ -1,12 +1,22 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using nas_FB10_MoodTracker2.Models;
+using nas_FB10_MoodTracker2.Services;
 using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace nas_FB10_MoodTracker2.ViewModels;
 
 public partial class CourseDetailViewModel : ObservableObject
 {
+    private readonly CacheService _cacheService;
+
+    public CourseDetailViewModel(CacheService cacheService)
+    {
+        _cacheService = cacheService;
+    }
+
     [ObservableProperty]
     private Course? _course;
     public double DetailHeightRequest { get; set; }
@@ -19,23 +29,23 @@ public partial class CourseDetailViewModel : ObservableObject
     public bool CanSubmit => Course != null && Course.Rating.HasValue;
 
     [RelayCommand(CanExecute = nameof(CanSubmit))]
-    private void Submit()
+    private async Task Submit()
     {
         if (Course is null) return;
 
         Course.Comment = Comment;
         Course.RatingTimestamp = DateTime.Now;
-        // clear after submission
+
+        await SaveToCacheAsync();
         Comment = string.Empty;
     }
 
     [RelayCommand]
-    private void Rate(int rating)
+    private async Task Rate(int rating)
     {
         if (Course is null) return;
 
         Course.Rating = rating;
-        // update hint based on rating type
         Course.Feedback.Hint = rating switch
         {
             1 => "What frustrated you most?",
@@ -45,7 +55,21 @@ public partial class CourseDetailViewModel : ObservableObject
             5 => "What stood out?",
             _ => string.Empty
         };
-        // allow submit now
+
+        await SaveToCacheAsync();
         SubmitCommand.NotifyCanExecuteChanged();
+    }
+
+    private async Task SaveToCacheAsync()
+    {
+        if (Course == null) return;
+
+        var cache = await _cacheService.LoadAsync();
+        cache[Course.Id] = new CacheService.CachedCourseData
+        {
+            Rating = Course.Rating,
+            Comment = Course.Comment
+        };
+        await _cacheService.SaveAsync(cache);
     }
 }

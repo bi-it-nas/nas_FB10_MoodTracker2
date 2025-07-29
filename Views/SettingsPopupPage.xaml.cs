@@ -1,13 +1,19 @@
-﻿using Microsoft.Maui.Controls;
-using nas_FB10_MoodTracker2.Services; // Assuming CacheService is in Services
+﻿using System;
+using Microsoft.Maui.Controls;
+using nas_FB10_MoodTracker2.Services;
 
 namespace nas_FB10_MoodTracker2.Views;
 
 public partial class SettingsPopupPage : ContentPage
 {
+    private readonly CacheService _cacheService;
+
     public SettingsPopupPage()
     {
         InitializeComponent();
+        // Resolve via DI
+        _cacheService = MauiProgram.Services.GetService<CacheService>()
+                        ?? throw new InvalidOperationException("CacheService not registered");
     }
 
     private async void OnCloseClicked(object sender, EventArgs e)
@@ -15,9 +21,9 @@ public partial class SettingsPopupPage : ContentPage
         await Navigation.PopModalAsync();
     }
 
-    private void OnDeleteCacheClicked(object sender, EventArgs e)
+    private async void OnDeleteCacheClicked(object sender, EventArgs e)
     {
-        CacheService.ClearCache(); // Assuming you have a CacheService
-        DisplayAlert("Cache Deleted", "The cache has been successfully deleted.", "OK");
+        await _cacheService.ClearCacheAsync();
+        await DisplayAlert("Cache Cleared", "All saved ratings and comments have been removed.", "OK");
     }
 }

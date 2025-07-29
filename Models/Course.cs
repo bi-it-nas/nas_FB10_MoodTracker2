@@ -7,10 +7,11 @@ namespace nas_FB10_MoodTracker2.Models;
 
 public class Course : INotifyPropertyChanged
 {
+    // ← New: unique identifier
+    public string Id { get; set; } = Guid.NewGuid().ToString();
+
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-
-    // ← Added Location, Date, Time
     public string Location { get; set; } = string.Empty;
     public string Date { get; set; } = string.Empty;
     public string Time { get; set; } = string.Empty;
@@ -38,7 +39,6 @@ public class Course : INotifyPropertyChanged
         set => SetProperty(ref _comment, value, nameof(Comment));
     }
 
-    // ← **New**: Details field for your extended JSON info
     private string _details = string.Empty;
     public string Details
     {
@@ -59,7 +59,6 @@ public class Course : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string? name = null) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
     protected void SetProperty<T>(ref T field, T value, params string[] notify)
     {
         if (!EqualityComparer<T>.Default.Equals(field, value))

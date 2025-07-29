@@ -2,44 +2,42 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
     x:Class="nas_FB10_MoodTracker2.Views.SettingsPopupPage"
-    BackgroundColor="#33000000"
+    BackgroundColor="#66000000"
     Shell.NavBarIsVisible="False">
 
     <Grid>
         <Grid.GestureRecognizers>
-            <TapGestureRecognizer Tapped="OnCloseClicked" NumberOfTapsRequired="1"/>
+            <TapGestureRecognizer Tapped="OnCloseClicked"/>
         </Grid.GestureRecognizers>
 
-        <BoxView Color="Black" Opacity="0.2" />
+        <VerticalStackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        WidthRequest="300">
 
-        <Border
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
-            Padding="12"
-            WidthRequest="340"
-            HeightRequest="200"
-            Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
-            <Border.StrokeShape>
-                <shapes:RoundRectangle CornerRadius="16"/>
-            </Border.StrokeShape>
+            <Border
+          BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+          StrokeShape="RoundRectangle 16"
+          Padding="20"
+          Shadow="Color=Black,Opacity=0.1,Offset=0,4,Radius=8">
 
-            <Grid RowDefinitions="Auto,*" Padding="8">
-                <Image
-                    Source="logo.png"
-                    HorizontalOptions="Start"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    Grid.Row="0"/>
-                <Button
-                    Text="Delete Cache"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Clicked="OnDeleteCacheClicked"
-                    Grid.Row="1"/>
-            </Grid>
-        </Border>
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="Settings"
+                 FontSize="20"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Center" />
+
+                    <Button Text="Clear Cache"
+                  Clicked="OnDeleteCacheClicked"
+                  BackgroundColor="#FF3B30"
+                  TextColor="White" />
+
+                    <Button Text="Close"
+                  Clicked="OnCloseClicked" />
+                </VerticalStackLayout>
+
+            </Border>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>
