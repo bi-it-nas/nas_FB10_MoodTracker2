@@ -140,19 +140,7 @@
             IsEnabled="{Binding Course.Rating, Converter={StaticResource NotNullConverter}}"
             Clicked="OnSubmitClicked"/>
 
-                    <!-- Submitted comment display -->
-                    <Frame
-            IsVisible="{Binding Course.Comment, Converter={StaticResource NotNullConverter}}"
-            Padding="10"
-            Margin="0,8,0,0"
-            CornerRadius="8"
-            BackgroundColor="#F0F0F0"
-            HasShadow="False">
-                        <VerticalStackLayout Spacing="4">
-                            <Label Text="Your Comment:" FontAttributes="Bold" FontSize="14" TextColor="#333"/>
-                            <Label Text="{Binding Course.Comment}" FontSize="14" TextColor="#555" LineBreakMode="WordWrap"/>
-                        </VerticalStackLayout>
-                    </Frame>
+                    
 
                 </VerticalStackLayout>
             </Border>

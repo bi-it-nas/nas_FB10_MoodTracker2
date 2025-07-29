@@ -12,14 +12,15 @@ public partial class CoursesPopupPage : ContentPage
     {
         InitializeComponent();
 
-        // Prepare the shared VM
+        if (selectedCourse == null)
+            throw new ArgumentNullException(nameof(selectedCourse), "Course cannot be null.");
+
         var vm = MauiProgram.Services.GetService<CourseDetailViewModel>()
                  ?? throw new InvalidOperationException("CourseDetailViewModel not registered");
         vm.Course = selectedCourse;
-        vm.Comment = string.Empty;
+        vm.Comment = selectedCourse.Comment ?? string.Empty;
         BindingContext = vm;
 
-        // Start hidden/off‐screen for animation
         Opacity = 0;
         TranslationY = 100;
     }
@@ -27,8 +28,6 @@ public partial class CoursesPopupPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-
-        // Animate in: slide up from +100 to 0 and fade from 0 to 1
         await Task.WhenAll(
             this.FadeTo(1, 300, Easing.CubicIn),
             this.TranslateTo(0, 0, 300, Easing.CubicOut)
@@ -37,18 +36,16 @@ public partial class CoursesPopupPage : ContentPage
 
     protected override async void OnDisappearing()
     {
-        // Animate out: slide down to +100 and fade to 0
         await Task.WhenAll(
             this.FadeTo(0, 200, Easing.CubicOut),
             this.TranslateTo(0, 100, 200, Easing.CubicIn)
         );
-
         base.OnDisappearing();
     }
 
     private async void OnCloseClicked(object sender, EventArgs e)
     {
-        await Navigation.PopModalAsync(animated: false); // skip default animation
+        await Navigation.PopModalAsync(animated: false);
     }
 
     private void OnRateClicked(object sender, EventArgs e)
