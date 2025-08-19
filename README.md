@@ -10,7 +10,6 @@
 * [Resources](#resources)
 * [Ablauf](#ablauf)
 * [Journal](#journal)
-* [Gedanken](#gedanken)
 * [Prototyp in Figma](#prototyp-in-figma)
 * [Reviews](#reviews)
 * [Gedanken](gedanken)
@@ -104,31 +103,31 @@ Die Arbeit in der .NET MAUI Umgebung war anspruchsvoll und stellte einen grossen
 ## Journal
 ### Mittwoch 9. Juli 2025
 
-09:00 – 10:00 > Projektstruktur anpassen und Ordner aufräumen
-10:15 – 11:55 > UI Layout für Kursliste verfeinern
-13:00 – 15:00 > Popup Details implementieren
-15:15 – 17:00 > Erste Emoji-Buttons einbinden
+09:00 – 10:00 > Projektstruktur anpassen und Ordner aufräumen  <br>
+10:15 – 11:55 > UI Layout für Kursliste verfeinern  <br>
+13:00 – 15:00 > Popup Details implementieren  <br>
+15:15 – 17:00 > Erste Emoji-Buttons einbinden  <br>
 
 ### Donnerstag 10. Juli 2025
 
-09:00 – 10:00 > Bewertungsspeicherung als JSON testen
-10:15 – 11:55 > Kommentar-Feld Validierung (Mindestzeichen)
-13:00 – 15:00 > Settings-Popup löschen-Funktion einbauen
-15:15 – 17:00 > Cache Laden/Nachladen prüfen
+09:00 – 10:00 > Bewertungsspeicherung als JSON testen  <br>
+10:15 – 11:55 > Kommentar-Feld Validierung (Mindestzeichen)  <br>
+13:00 – 15:00 > Settings-Popup löschen-Funktion einbauen  <br>
+15:15 – 17:00 > Cache Laden/Nachladen prüfen  <br>
 
 ### Freitag 11. Juli 2025
 
-09:00 – 10:00 > Farben- und Schriftkonstanten refaktorisieren
-10:15 – 11:55 > Ressourcenordner Struktur optimieren
-13:00 – 15:00 > Automatisierte UI-Tests schreiben
-15:15 – 17:00 > Fehlerbehebung bei Popup-Animation
+09:00 – 10:00 > Farben- und Schriftkonstanten refaktorisieren  <br>
+10:15 – 11:55 > Ressourcenordner Struktur optimieren<br>
+13:00 – 15:00 > Automatisierte UI-Tests schreiben<br>
+15:15 – 17:00 > Fehlerbehebung bei Popup-Animation<br>
 
 ### Mittwoch 16. Juli 2025
 
-09:00 – 10:00 > Persistenz nach App-Neustart prüfen
-10:15 – 11:55 > Datenmodell Klassen erweitern
-13:00 – 15:00 > UML Klassendiagramm aktualisieren
-15:15 – 17:00 > Git Commit History bereinigen
+09:00 – 10:00 > Persistenz nach App-Neustart prüfen <br>
+10:15 – 11:55 > Datenmodell Klassen erweitern <br>
+13:00 – 15:00 > UML Klassendiagramm aktualisieren <br>
+15:15 – 17:00 > Git Commit History bereinigen <br>
 
 ### Mittwoch 23. Juli 2025
 
@@ -139,35 +138,31 @@ Die Arbeit in der .NET MAUI Umgebung war anspruchsvoll und stellte einen grossen
 
 ### Donnerstag 24. Juli 2025
 
-09:00 – 10:00 > Animationen Feintuning
-10:15 – 11:55 > Popup Closing-Animation beheben
-13:00 – 15:00 > Code Optimierung durchführen
-15:15 – 17:00 > Performance-Profiling durchführen
+09:00 – 10:00 > Animationen Feintuning <br>
+10:15 – 11:55 > Popup Closing-Animation beheben <br>
+13:00 – 15:00 > Code Optimierung durchführen <br>
+15:15 – 17:00 > Performance-Profiling durchführen <br>
 
 ### Freitag 25. Juli 2025
 
-09:00 – 10:00 > Letzte UI-Anpassungen vornehmen
-10:15 – 11:55 > Endgültige Tests auf Emulator durchführen
-13:00 – 15:00 > README auf Rechtschreibung prüfen
-15:15 – 17:00 > Finaler GitHub-Upload
+09:00 – 10:00 > Letzte UI-Anpassungen vornehmen <br>
+10:15 – 11:55 > Endgültige Tests auf Emulator durchführen <br>
+13:00 – 15:00 > README auf Rechtschreibung prüfen <br>
+15:15 – 17:00 > Finaler GitHub-Upload <br>
 
 ### Dienstag 29. Juli 2025
 
-09:00 – 10:00 > Erweiterte Code-Tests durchführen (privater Laptop)
-10:15 – 11:55 > Fehlerbehebungen und Edge-Case Tests
-13:00 – 15:00 > Langzeittests und Performance-Check
-15:15 – 17:00 > Stabilitätsprüfung des Codes (privater Laptop)
+09:00 – 10:00 > Erweiterte Code-Tests durchführen (privater Laptop) <br>
+10:15 – 11:55 > Fehlerbehebungen und Edge-Case Tests <br>
+13:00 – 15:00 > Langzeittests und Performance-Check <br>
+15:15 – 17:00 > Stabilitätsprüfung des Codes (privater Laptop) <br>
 
 ### Mittwoch 30. Juli 2025
 
-09:00 – 10:00 > Feedback aus Tests umsetzen
-10:15 – 11:55 > Letzte Code-Reviews durchführen
-13:00 – 15:00 > Abschlussdokumentation finalisieren
-15:15 – 17:00 > Finaler Projektabschluss & Code hochladen
-
-## Gedanken
-
-Hier können Ideen, offene Fragen und ToDos notiert werden
+09:00 – 10:00 > Feedback aus Tests umsetzen <br>
+10:15 – 11:55 > Letzte Code-Reviews durchführen <br>
+13:00 – 15:00 > Abschlussdokumentation finalisieren <br>
+15:15 – 17:00 > Finaler Projektabschluss & Code hochladen <br>
 
 ## Prototyp in Figma
 
