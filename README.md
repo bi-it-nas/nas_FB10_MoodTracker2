@@ -17,20 +17,20 @@
 
 ## Projektbeschreibung
 
-Im Rahmen von diesem Projekt habe ich eine Android App entwickelt, welche eine Liste von Kursen und Sommerzeitaktivitäten anzeigt  
-Man kann diese Kurse anwählen, genauere Details dazu einlesen und schliesslich mit einem Emoji bewerten sowie einen optionalen Kommentar hinterlassen  
-Die App ist gedacht für Teilnehmer dieser Kurse
+Im Rahmen von diesem Projekt habe ich eine Android App entwickelt, welche eine Liste von Kursen und Sommerzeitaktivitäten anzeigt.
+Man kann diese Kurse anwählen, genauere Details dazu einlesen und schliesslich mit einem Emoji bewerten sowie einen optionalen Kommentar hinterlassen. 
+Die App ist gedacht für Teilnehmer dieser Kurse.
 
 ## Benutzeranleitung
 
-Die App zu bedienen ist einfach und intuitiv  
-Auf der Startseite befindet sich eine Liste mit allen Kursen  
-Man kann die Kurse antippen und es erscheint ein Popup Fenster mit weiteren Details sowie der Möglichkeit, eine Bewertung abzugeben und einen optionalen Kommentar zu hinterlassen  
+Die App zu bedienen ist einfach und intuitiv.
+Auf der Startseite befindet sich eine Liste mit allen Kursen. 
+Man kann die Kurse antippen und es erscheint ein Popup Fenster mit weiteren Details sowie der Möglichkeit, eine Bewertung abzugeben und einen optionalen Kommentar zu hinterlassen.
 
-Die Bewertungen können jederzeit geändert werden  
-Auf der Startseite gibt es in der Titelleiste zwei zusätzliche Buttons  
-* Ein Button für die Einstellungen, wo man zurzeit alle Kommentare und Bewertungen löschen kann  
-* Ein Button zum Beenden der App  
+Die Bewertungen können jederzeit geändert werden.
+Auf der Startseite gibt es in der Titelleiste zwei zusätzliche Buttons. 
+* Ein Button für die Einstellungen, wo man zurzeit alle Kommentare und Bewertungen löschen kann
+* Ein Button zum Beenden der App
 
 ## Modifikationsanleitung
 
@@ -131,10 +131,10 @@ Die Arbeit in der .NET MAUI Umgebung war anspruchsvoll und stellte einen grossen
 
 ### Mittwoch 23. Juli 2025
 
-09:00 – 10:00 > Benutzeranleitung im README ergänzen
-10:15 – 11:55 > Markdown Inhaltsverzeichnis testen
-13:00 – 15:00 > Platzhalter für Screenshots einfügen
-15:15 – 17:00 > Feedback-Reviews einarbeiten
+09:00 – 10:00 > Benutzeranleitung im README ergänzen <br>
+10:15 – 11:55 > Markdown Inhaltsverzeichnis testen <br>
+13:00 – 15:00 > Platzhalter für Screenshots einfügen <br>
+15:15 – 17:00 > Feedback-Reviews einarbeiten <br>
 
 ### Donnerstag 24. Juli 2025
 
